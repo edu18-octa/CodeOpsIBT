@@ -1,0 +1,31 @@
+# day02/split_bill.py
+
+# 1. Bill details
+bill_total = 850.00       # total bill in ETB
+num_people = 4
+names = ["Abel", "Mihret", "Selam", "Dawit"]
+
+
+# 2. Function to calculate the split
+def split_bill(total, people, tip_rate=0.10):
+    """
+    Calculates the amount each person owes, tip included.
+    """
+    tip_amount = total * tip_rate      # operator: multiplication
+    grand_total = total + tip_amount   # operator: addition
+    per_person = grand_total / people  # operator: division
+    return per_person, tip_amount
+
+
+# 3. Compute the shared amount
+share, tip = split_bill(bill_total, num_people)
+
+print(f"Bill total: {bill_total:.2f} ETB")
+print(f"Tip (10%): {tip:.2f} ETB")
+print(f"Total with tip: {bill_total + tip:.2f} ETB")
+print(f"Number of people: {num_people}")
+print("-" * 30)
+
+# 4. Loop through names and print each person's share
+for name in names:
+    print(f"{name} owes: {share:.2f} ETB")
